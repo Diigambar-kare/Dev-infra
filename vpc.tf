@@ -26,7 +26,7 @@ resource "aws_subnet" "private_subnets" {
   count = 3
 
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.${count.index + 11}.0/24"
+  cidr_block        = "10.0.${count.index + 11}.0/22"
   availability_zone = element(["ap-south-2a", "ap-south-2b", "ap-south-2c"], count.index)
 
   tags = {
@@ -40,7 +40,7 @@ resource "aws_internet_gateway" "gw" {
 
   tags = {
     Name = "fittbot-Dev-InternetGateway"
-  }
+  }s
 }
 
 # Create a Route Table for Public Subnets
