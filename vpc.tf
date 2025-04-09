@@ -17,7 +17,7 @@ resource "aws_subnet" "public_subnets" {
   availability_zone       = element(["ap-south-2a", "ap-south-2b", "ap-south-2c"], count.index)
 
   tags = {
-    Name = "fittbot-PublicSubnet-${count.index + 1}"
+    Name = "fittbot-Dev-PublicSubnet-${count.index + 1}"
   }
 }
 
@@ -30,7 +30,7 @@ resource "aws_subnet" "private_subnets" {
   availability_zone = element(["ap-south-2a", "ap-south-2b", "ap-south-2c"], count.index)
 
   tags = {
-    Name = "fittbot-PrivateSubnet-${count.index + 1}"
+    Name = "fittbot-Dev-PrivateSubnet-${count.index + 1}"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "fittbot-InternetGateway"
+    Name = "fittbot-Dev-InternetGateway"
   }
 }
 
@@ -53,7 +53,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "fittbot-PublicRouteTable"
+    Name = "fittbot-Dev-PublicRouteTable"
   }
 }
 
