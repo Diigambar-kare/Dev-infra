@@ -12,6 +12,6 @@ resource "aws_security_group_rule" "redis_ingress_launch_wizard" {
   from_port                = 6379
   to_port                  = 6379
   protocol                 = "tcp"
-  source_security_group_id = "sg-06b7e18016d8cddcc"  # Launch Wizard SG ID
+  source_security_group_id = aws_security_group.launch_wizard_sg.id  # Launch Wizard SG ID
   security_group_id        = aws_security_group.dev_redis_sg.id
 }
