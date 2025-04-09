@@ -40,7 +40,7 @@ resource "aws_internet_gateway" "gw" {
 
   tags = {
     Name = "fittbot-Dev-InternetGateway"
-  }s
+  }
 }
 
 # Create a Route Table for Public Subnets
