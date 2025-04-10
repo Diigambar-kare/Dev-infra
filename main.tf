@@ -1,4 +1,4 @@
 module "security_groups" {
-  source  = "./Security"
+  source  = "./Security_groups"
   vpc_id  = var.vpc_id
 }
