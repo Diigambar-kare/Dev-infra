@@ -7,12 +7,12 @@ resource "aws_vpc" "main" {
   }
 }
 
-# Create Public Subnets
+# Create Public Subnets with Random IPs in 10.0.0.0/16
 resource "aws_subnet" "public_subnets" {
-  count = length(var.public_subnet_cidrs)
+  count = length(var.availability_zones)
 
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = var.public_subnet_cidrs[count.index]
+  cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index)
   map_public_ip_on_launch = true
   availability_zone       = element(var.availability_zones, count.index)
 
@@ -21,12 +21,12 @@ resource "aws_subnet" "public_subnets" {
   }
 }
 
-# Create Private Subnets
+# Create Private Subnets with Random IPs in 10.0.0.0/16
 resource "aws_subnet" "private_subnets" {
-  count = length(var.private_subnet_cidrs)
+  count = length(var.availability_zones)
 
   vpc_id            = aws_vpc.main.id
-  cidr_block        = var.private_subnet_cidrs[count.index]
+  cidr_block        = cidrsubnet(var.vpc_cidr, 8, count.index + 10)
   availability_zone = element(var.availability_zones, count.index)
 
   tags = {
@@ -34,7 +34,7 @@ resource "aws_subnet" "private_subnets" {
   }
 }
 
-# Create an Internet Gateway
+# Create Internet Gateway
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
@@ -43,7 +43,7 @@ resource "aws_internet_gateway" "gw" {
   }
 }
 
-# Create a Public Route Table
+# Create Public Route Table
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
@@ -59,7 +59,7 @@ resource "aws_route_table" "public" {
 
 # Associate Public Subnets with Route Table
 resource "aws_route_table_association" "public_assoc" {
-  count          = length(var.public_subnet_cidrs)
+  count          = length(var.availability_zones)
   subnet_id      = aws_subnet.public_subnets[count.index].id
   route_table_id = aws_route_table.public.id
 }
