@@ -1,5 +1,5 @@
 #vpc id
 variable "vpc_id" {
-  description = "vpc-01492ba4565811e72"
+  description = "vpc-00ac42b122a2c958d"
   type        = string
 }
