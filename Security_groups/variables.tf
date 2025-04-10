@@ -1,4 +1,4 @@
 variable "vpc_id" {
-  type = string
+  description = "vpc-00ac42b122a2c958d"
+  type        = string
 }
-
