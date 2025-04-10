@@ -1,7 +1,7 @@
 resource "aws_security_group" "dev_redis_sg" {
   name        = "dev-redis-sg"
   description = "Security Group for Redis"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = "var.vpc_id"
 
   egress {
     from_port   = 0

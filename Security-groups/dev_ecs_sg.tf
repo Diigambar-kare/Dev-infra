@@ -1,7 +1,7 @@
 resource "aws_security_group" "dev_ecs_sg" {
   name        = "dev-ecs-sg"
   description = "Security Group for ECS"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = "var.vpc_id"
 
   egress {
     from_port   = 0

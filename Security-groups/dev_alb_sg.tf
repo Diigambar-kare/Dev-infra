@@ -1,7 +1,7 @@
 resource "aws_security_group" "dev_alb" {
   name        = "dev-alb"
   description = "Security Group for Load Balancer"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = "var.vpc_id"
 
   egress {
     from_port   = 0

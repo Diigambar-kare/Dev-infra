@@ -1,7 +1,7 @@
 resource "aws_security_group" "dev_rds_sg" {
   name        = "dev-rds-sg"
   description = "Security Group for RDS"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = "var.vpc_id"
 
   egress {
     from_port   = 0

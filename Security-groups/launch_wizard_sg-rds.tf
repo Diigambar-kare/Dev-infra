@@ -1,7 +1,7 @@
 resource "aws_security_group" "launch_wizard_sg" {
   name        = "launch-wizard-sg-rds"
   description = "Security Group for Launch Wizard"
-  vpc_id      = aws_vpc.main.id  # Replace with your VPC ID
+  vpc_id      = "var.vpc_id" # Replace with your VPC ID
 
   # Allow all outbound traffic
   egress {
