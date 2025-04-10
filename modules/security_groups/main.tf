@@ -120,3 +120,37 @@ resource "aws_security_group_rule" "launch_wizard_ssh" {
   security_group_id = aws_security_group.launch_wizard_sg.id
   cidr_blocks       = ["0.0.0.0/0"]  # Open to all, restrict for security
 }
+
+# Redis Security Group
+resource "aws_security_group" "dev_redis_sg" {
+  name        = "dev-redis-sg"
+  description = "Security Group for Redis"
+  vpc_id      = var.vpc_id
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = { Name = "dev-redis-sg" }
+}
+
+resource "aws_security_group_rule" "redis_ingress_ecs" {
+  type                     = "ingress"
+  from_port                = 6379
+  to_port                  = 6379
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.dev_ecs_sg.id
+  security_group_id        = aws_security_group.dev_redis_sg.id
+}
+
+resource "aws_security_group_rule" "redis_ingress_launch_wizard" {
+  type                     = "ingress"
+  from_port                = 6379
+  to_port                  = 6379
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.launch_wizard_sg.id
+  security_group_id        = aws_security_group.dev_redis_sg.id
+}
