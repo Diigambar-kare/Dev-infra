@@ -5,3 +5,7 @@ module "vpc" {
   vpc_name          = "fittbot-Dev-VPC"
   availability_zones = ["ap-south-2a", "ap-south-2b", "ap-south-2c"]
 }
+module "security" {
+  source = "./modules/security_groups"
+  vpc_id = "vpc-0cfe33cec30810558"
+}
