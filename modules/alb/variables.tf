@@ -16,8 +16,19 @@ variable "security_groups" {
 variable "target_group_names" {
   description = "Names of the target groups"
   type        = list(string)
+   default     = ["dev-blue-target-group", "dev-green-target-group"]
 }
 
+variable "target_group_ports" {
+  description = "Ports for the target groups"
+  type        = list(number)
+  default     = [80, 80]  # Both target groups use port 80
+}
+variable "target_group_protocol" {
+  description = "Protocol for the target groups"
+  type        = string
+  default     = "HTTP"
+}
 variable "vpc_id" {
   description = "VPC ID where the ALB will be created"
   type        = string
