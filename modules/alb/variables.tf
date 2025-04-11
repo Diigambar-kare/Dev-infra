@@ -12,12 +12,12 @@ variable "security_groups" {
   description = "List of security groups for the ALB"
   type        = list(string)
 }
-
 variable "target_group_names" {
   description = "Names of the target groups"
   type        = list(string)
-   default     =  ["dev-green-target-group,dev-blue-target-group"]
+  default     = ["dev-green-target-group", "dev-blue-target-group"]
 }
+
 
 variable "target_group_ports" {
   description = "Ports for the target groups"
