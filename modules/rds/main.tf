@@ -20,5 +20,6 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 
   tags = {
     Name = "RDS Private Subnet Group"
+    VPC  = var.vpc_id  # Ensure this VPC is referenced
   }
 }

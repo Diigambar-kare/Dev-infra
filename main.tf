@@ -26,10 +26,12 @@ module "rds" {
   db_name        = "dev-fittbot-db"
   username       = "admin"
   password       = "Fittbot@1234"
-  security_group = "sg-0d18be5de87aadfd1"  # Now passed from here
+  security_group = "sg-0d18be5de87aadfd1"
   subnet_ids     = [
     "subnet-0c5b48a7e83d0f147",
     "subnet-009f431521e64f280",
     "subnet-02080e43952fc7cbd"
   ]
+  vpc_id = "vpc-0cfe33cec30810558"  # Now explicitly passing the VPC ID
 }
+
