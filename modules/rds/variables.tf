@@ -1,0 +1,22 @@
+variable "db_name" {
+  type    = string
+  default = "dev-fittbot-db"
+}
+
+variable "username" {
+  type    = string
+  default = "admin"
+}
+
+variable "password" {
+  type    = string
+  default = "Fittbot@1234"
+}
+
+variable "security_group" {
+  type = string
+}
+
+variable "subnet_ids" {
+  type = list(string)
+}
