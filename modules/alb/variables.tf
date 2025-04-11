@@ -9,7 +9,7 @@ variable "subnets" {
 }
 
 variable "security_groups" {
-  description = "List of security groups for the ALB"
+  description = "List of security group IDs for the ALB"
   type        = list(string)
 }
 variable "target_group_names" {
