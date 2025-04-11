@@ -18,5 +18,6 @@ module "alb" {
   target_group_names = ["dev-green-target-group", "dev-blue-target-group"]
   target_group_ports = [80, 80]
 }
-
-
+module "iam_roles" {
+  source = "./modules/iam_roles"
+}
