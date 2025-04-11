@@ -1,5 +1,5 @@
 resource "aws_db_instance" "dev_fittbot_db" {
-  identifier           = "devFittBot"
+  identifier           = "dev-fittbot-db"
   engine              = "mysql"
   instance_class      = "db.t4g.micro"
   allocated_storage   = 20
