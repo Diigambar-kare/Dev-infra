@@ -23,7 +23,7 @@ module "iam_roles" {
 }
 module "rds" {
   source          = "./modules/rds"
-  db_name        = "devfittbotdb"
+  db_name        = "devFittBot"
   username       = "admin"
   password       = "Fittbot@1234"
   security_group = "sg-0d18be5de87aadfd1"

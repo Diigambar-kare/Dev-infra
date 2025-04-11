@@ -1,6 +1,6 @@
 variable "db_name" {
   type    = string
-  default = "devfittbotdb"
+  default = "devFittBot"
 }
 
 variable "username" {
