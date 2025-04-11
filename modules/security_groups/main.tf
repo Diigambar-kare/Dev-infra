@@ -1,5 +1,5 @@
 resource "aws_security_group" "dev_alb" {
-  name        = "dev-alb"
+  name        = "dev-alb-sg"
   description = "Security Group for Load Balancer"
   vpc_id      = var.vpc_id
 
@@ -10,7 +10,7 @@ resource "aws_security_group" "dev_alb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = { Name = "dev-alb" }
+  tags = { Name = "dev-alb-sg"}
 }
 
 resource "aws_security_group_rule" "alb_ingress_http" {
