@@ -12,8 +12,8 @@ module "security" {
 module "alb" {
   source             = "./modules/alb"
   lb_name           = "dev-lb"
-  subnets           = module.vpc.public_subnets
-  security_groups   = [module.security_groups.alb_sg]
+  subnets           = "fittbot-Dev-PublicSubnet"
+  security_groups   = ["de-alb-sg"]
   target_group_names = ["dev-green-target-group,dev-blue-target-group"]
   vpc_id            = "pc-0cfe33cec30810558"
 }
