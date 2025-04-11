@@ -27,4 +27,5 @@ variable "vpc_id" {
 variable "availability_zones" {
   description = "List of availability zones"
   type        = list(string)
+  default   = ["ap-south-2a", "ap-south-2b", "ap-south-2c"]
 }
