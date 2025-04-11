@@ -15,7 +15,7 @@ variable "security_groups" {
 variable "target_group_names" {
   description = "Names of the target groups"
   type        = list(string)
-  default     = ["dev-green-target-group", "dev-blue-target-group"]
+  default     = ["dev-blue-target-group", "dev-green-target-group"]
 }
 
 

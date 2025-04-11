@@ -16,7 +16,7 @@ module "alb" {
   subnets            = ["subnet-0b0e8dda10f4f380d", "subnet-07945cee900c0ca7c", "subnet-01edb5fa9c7dc796d"]
   security_groups    = ["sg-0de0bcc29f098a819"]
   vpc_id             = module.vpc.vpc_id  # ✅ Use module output instead of hardcoded ID
-  target_group_names = ["dev-green-target-group", "dev-blue-target-group"]
+  target_group_names = ["dev-blue-target-group", "dev-green-target-group"]
   target_group_ports = [80, 80]
 }
 
