@@ -10,7 +10,7 @@ variable "username" {
 
 variable "password" {
   type    = string
-  default = "Fittbot@1234"
+  default = "Fittbot1234"
 }
 
 variable "security_group" {

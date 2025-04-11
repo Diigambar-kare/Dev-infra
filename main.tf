@@ -25,7 +25,7 @@ module "rds" {
   source          = "./modules/rds"
   db_name        = "devFittBot"
   username       = "admin"
-  password       = "Fittbot@1234"
+  password       = "Fittbot1234"
   security_group = "sg-0d18be5de87aadfd1"
   subnet_ids     = [
     "subnet-0c5b48a7e83d0f147",
