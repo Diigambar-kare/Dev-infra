@@ -8,7 +8,7 @@ resource "aws_elasticache_subnet_group" "redis_subnet_group" {
 }
 
 resource "aws_elasticache_cluster" "dev_fittbot_redis" {
-  cluster_id           = "var.name"
+  cluster_id           = var.name
   engine              = "redis"
   node_type           = "cache.t4g.micro"
   num_cache_nodes     = 1
@@ -18,6 +18,6 @@ resource "aws_elasticache_cluster" "dev_fittbot_redis" {
   port                = 6379
 
   tags = {
-    Name = "var.name"
+    Name = var.name
   }
 }
