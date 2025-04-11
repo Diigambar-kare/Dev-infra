@@ -11,7 +11,7 @@ resource "aws_db_instance" "dev_fittbot_db" {
   publicly_accessible = false
   vpc_security_group_ids = [var.security_group]  # Taking SG from variable
   db_subnet_group_name  = aws_db_subnet_group.rds_subnet_group.name
-  availability_zone = element(var.availability_zones, count.index)
+  availability_zone = var.availability_zones[0] 
   skip_final_snapshot  = true
 }
 
