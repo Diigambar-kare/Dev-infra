@@ -17,7 +17,7 @@ resource "aws_lb" "dev_lb" {
 resource "aws_lb_target_group" "target_groups" {
   count       = length(var.target_group_names)
   name        = var.target_group_names[count.index]
-  port        = var.target_group_ports[count.inde]
+  port        = var.target_group_ports[count.index]
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
   target_type = "ip"
