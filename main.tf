@@ -32,6 +32,7 @@ module "rds" {
     "subnet-009f431521e64f280",
     "subnet-02080e43952fc7cbd"
   ]
-  vpc_id = "vpc-0cfe33cec30810558"  # Now explicitly passing the VPC ID
+  vpc_id = "vpc-0cfe33cec30810558"
+  availability_zones = ["ap-south-2a", "ap-south-2b", "ap-south-2c"]
 }
 
