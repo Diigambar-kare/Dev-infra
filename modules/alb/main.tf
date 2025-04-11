@@ -17,7 +17,7 @@ resource "aws_lb" "dev_lb" {
 resource "aws_lb_target_group" "target_groups" {
   count       = length(var.target_group_names)
   name        = var.target_group_names[count.index]
-  port        = var.target_group_ports[count.index]
+  port        = 8000
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
   target_type = "ip"
@@ -38,7 +38,7 @@ resource "aws_lb_target_group" "target_groups" {
 # Create ALB Listener
 resource "aws_lb_listener" "http_listener" {
   load_balancer_arn = aws_lb.dev_lb.arn
-  port              = 8000
+  port              = 80
   protocol          = "HTTP"
 
   default_action {
